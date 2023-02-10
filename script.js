@@ -1,6 +1,6 @@
 'use strict';
 
-const name_good = 'Чайник';
+const nameGood = 'Чайник';
 
 const count = 3;
 
@@ -8,6 +8,6 @@ const category = 'Товары для кухни';
 
 const price = 200;
 
-console.log('товар: ', name_good);
+console.log('товар: ', nameGood);
 
 console.log('общая сумма за товар: ', price * count);
