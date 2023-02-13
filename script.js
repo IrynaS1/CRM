@@ -15,7 +15,7 @@ console.log('общая сумма за товар: ', price * count);
 */
 
 
-//Второй урок
+/*Второй урок
 const nameGood = prompt('Введите наименование товара');
 
 const count = prompt('Введите количество товара');
@@ -36,3 +36,20 @@ console.log(typeof countNumber);
 console.log(typeof priceNumber);
 
 console.log(`На складе ${countNumber} единицы товара "${nameGood}" на сумму ${priceNumber * countNumber} деревянных`);
+*/
+
+//Третий урок
+const nameGood = prompt('Введите наименование товара');
+
+const count = prompt('Введите количество товара');
+
+const category = prompt('Введите категорию товара');
+
+const price = prompt('Введите цену товара');
+
+if (typeof price === 'number') {
+	console.log(`На складе ${count} единицы товара "${nameGood}" на сумму ${price * count} деревянных`);
+} else {
+	console.log('Вы ввели некорректные данные');
+}
+
