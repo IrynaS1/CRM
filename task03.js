@@ -55,4 +55,4 @@ const calculate = (totalSum, countGoods, promoCode) => {
 	}
 }
 
-calculate(5000, 11, "MEHED");
+calculate(45000, 11, "MEHED");
