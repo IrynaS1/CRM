@@ -12,47 +12,25 @@
 Порядок применения скидок должен соблюдаться*/
 
 const calculate = (totalSum, countGoods, promoCode) => {
-	let discontForGoods = 0;
-	discontForTotalSum = 0;
-	discontPromoCode = 0;
-	discontPromoCodeSecond = 0;
+	let result = totalSum;
 
 	if (countGoods > 10) {
-		discontForGoods = totalSum * 0.03;
-	} else {
-		discontForGoods = 0;
+		result = result - result * 0.03;
 	}
 
-	totalSum = totalSum - discontForGoods;
-
-	console.log(totalSum);
-
-	if (totalSum > 30000) {
-		discontForTotalSum = (totalSum - 30000) * 0.15;
-	} else {
-		discontForTotalSum = 0;
+	if (result > 30000) {
+		result = result - ((result - 30000) * 0.15);
 	}
-
-	totalSum = totalSum - discontForTotalSum;
-	console.log(totalSum);
 
 	if (promoCode === "METHED") {
-		discontPromoCode = totalSum * 0.1;
-	} else {
-		discontPromoCode = 0;
+		result = result - result * 0.1;
 	}
 
-	totalSum = totalSum - discontPromoCode;
-	console.log(totalSum);
-
-	let discontSum = discontForGoods + discontForTotalSum + discontPromoCode;
-
-	if ((totalSum - discontSum) > 2000 && promoCode === "G3H2Z1") {
-		totalSum = totalSum - 500;
-		return totalSum;
-	} else {
-		return totalSum;
+	if (promoCode === "G3H2Z1" && result > 2000) {
+		result = result - 500;
 	}
+
+	return result;
 }
 
 calculate(45000, 11, "MEHED");
