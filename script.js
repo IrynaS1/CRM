@@ -38,7 +38,7 @@ console.log(typeof priceNumber);
 console.log(`На складе ${countNumber} единицы товара "${nameGood}" на сумму ${priceNumber * countNumber} деревянных`);
 */
 
-//Третий урок
+/*Третий урок
 const nameGood = prompt('Введите наименование товара');
 
 const count = prompt('Введите количество товара');
@@ -52,4 +52,4 @@ if (typeof price === 'number') {
 } else {
 	console.log('Вы ввели некорректные данные');
 }
-
+*/
