@@ -13,5 +13,15 @@
 Используйте цикл for в функции*/
 
 const isPrime = (num) => {
-	
-}
+	for (let i = 2; i <= num; i++) {
+
+		if (!(num % i)) {
+			console.log('false');
+			break;
+		} else {
+			console.log('true');
+			break;
+		}
+	}
+};
+isPrime(16);
