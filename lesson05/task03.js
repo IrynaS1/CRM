@@ -3,18 +3,11 @@
 Пример: "Привет мир" => "рим тевирП"*/
 
 const reverseLine = (line) => {
+	let newLine = '';
 
-	console.log(line.length);
-
-	let i = line[i];
-	console.log(i);
-
-	for (i = 0; i <= line.length - 1; i++) {
-		line[i] = line[length - 1];
-		console.log(line[i]);
-
+	for (let i = line.length - 1; i >= 0; i--) {
+		newLine = newLine + line[i];
 	}
-	console.log(line);
+	console.log(newLine);
 }
-
 reverseLine('vbnm');
