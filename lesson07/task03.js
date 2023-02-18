@@ -20,7 +20,6 @@ const addPrefix = (names, prefix) => {
 	});
 
 	return names;
-
 }
 
 const names = ['Noah', 'Liam', 'Mason', 'Jacob', 'Robot', 'William', 'Ethan', 'Michael', 'Alexander'];
