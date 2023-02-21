@@ -13,12 +13,10 @@ const arrayRandom = (numItems, m, n) => {
 	let array = [];
 
 	for (let i = 0; i <= numItems - 1; i++) {
-		min = Math.ceil(m);
-		max = Math.floor(n);
-		array.push(Math.floor(Math.random() * (max - min +1)+ min));
+		array.push(Math.floor(min + Math.random() * (max - min)));
 	}
 
 	return array;
 }
 
-arrayRandom(20, -5, 86);
+arrayRandom(20, 86, -40);
