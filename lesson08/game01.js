@@ -9,3 +9,27 @@
 если пользователь вводит правильное число, то бот выводит “Правильно!”;
 если пользователь ввел не число, то выводит “Введи число!”;
 если пользователь нажимает “Отмена”, то игра заканчивается.*/
+
+const randomNumber = Math.floor(Math.random() * 100);
+
+const userNumber = prompt('Введите число: ');
+
+if (Number(userNumber) > randomNumber) {
+	prompt('Меньше! Введите число: ');
+};
+
+if (Number(userNumber) < randomNumber) {
+	prompt('Больше! Введите число: ');
+};
+
+if (Number(userNumber) === randomNumber) {
+	prompt('Правильно!');
+};
+
+if (isNaN(userNumber) || userNumber === '') {
+	prompt('Неверный формат данных. Введите число: ');
+};
+
+if (userNumber === null || userNumber === '') {
+	alert( 'Отменено' );
+};
