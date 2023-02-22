@@ -13,11 +13,15 @@ const arrayRandom = (numItems, m, n, param) => {
 
 	if (param === 'even') {
 		for (let i = 0; i <= numItems - 1; i++) {
+			let min = Math.ceil(m);
+			let max = Math.floor(n);
 			let randomNumber = (Math.floor(min + Math.random() * (max - min))) * 2;
 			array.push(randomNumber);
 		}
 	} else {
 		for (let i = 0; i <= numItems - 1; i++) {
+			let min = Math.ceil(m);
+			let max = Math.floor(n);
 			let randomNumber = Math.floor(min + Math.random() * (max - min)) * 2 + 1;
 			array.push(randomNumber);
 		}
