@@ -13,6 +13,8 @@ const arrayRandom = (numItems, m, n) => {
 	let array = [];
 
 	for (let i = 0; i <= numItems - 1; i++) {
+		let min = Math.ceil(m);
+		let max = Math.floor(n);
 		array.push(Math.floor(min + Math.random() * (max - min)));
 	}
 
