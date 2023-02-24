@@ -13,10 +13,6 @@ const cart = {
 			priceOfGood,
 			countOfGood,
 		});
-		this.increaseCount();
-		this.calculateItemPrice();
-		console.log('increaseCount после добавления товаров в функции add', this.increaseCount());
-		console.log('calculateItemPrice после добавления товаров в функции add', this.calculateItemPrice());
 	},
 	increaseCount: function () {
 		for (let keyOne in this.items) {
@@ -47,7 +43,7 @@ const cart = {
 	},
 }
 
-cart.add('milk', 150, 2);
+cart.add('cucumber', 150, 2);
 cart.add('salo', 300, 3);
 cart.add('bread', 180, 1);
 cart.print();
