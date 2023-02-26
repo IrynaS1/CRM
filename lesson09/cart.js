@@ -23,20 +23,13 @@ const cart = {
 		this.count = this.count + countOfGoods;
 	},
 	calculateItemPrice: function () {
-		let priceOfGoods = 0;
-		for (let key in this.items) {
-			priceOfGoods = this.items[key].priceOfGood;
-		}
 
-		let countOfGoods = 0;
-		for (let keyOne in this.items) {
-			countOfGoods = this.items[keyOne].countOfGood;
-		}
+		let totalPriceOfGoods = this.items.reduce((acc, item) => {
+			return acc + item.priceOfGood * item.countOfGood;
+		}, 0);
 
-		let tPrice = 0;
-		tPrice = tPrice + priceOfGoods * countOfGoods;
-		console.log('tPrice', tPrice);
-		return tPrice;
+		return totalPriceOfGoods;
+
 	},
 	clear() {
 		this.items = Object.create(null);
