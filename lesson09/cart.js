@@ -1,45 +1,43 @@
-'use strict'
+'use strict';
 
 const cart = {
-	items: [],
-	count: 0,
-	get totalPrice() {
-		return this.calculateItemPrice();
-	},
-	add: function (nameOfGood, priceOfGood, countOfGood = 1) {
-		const good = {
-			nameOfGood,
-			priceOfGood,
-			countOfGood,
-		};
+  items: [],
+  count: 0,
+  get totalPrice() {
+    return this.calculateItemPrice();
+  },
+  add(nameOfGood, priceOfGood, countOfGood = 1) {
+    const good = {
+      nameOfGood,
+      priceOfGood,
+      countOfGood,
+    };
 
-		this.items.push(good);
-		this.increaseCount();
-	},
-	increaseCount: function () {
-		for (let keyOne in this.items) {
-			countOfGoods = this.items[keyOne].countOfGood;
-		}
-		this.count = this.count + countOfGoods;
-	},
-	calculateItemPrice: function () {
+    this.items.push(good);
+    this.increaseCount();
+  },
+  increaseCount() {
+    let countOfGoods;
+    for (const keyOne in this.items) {
+      countOfGoods = this.items[keyOne].countOfGood;
+    }
+    this.count += countOfGoods;
+  },
+  calculateItemPrice() {
+    const totalPriceOfGoods = this.items.reduce((acc, item) =>
+      acc + item.priceOfGood * item.countOfGood, 0);
 
-		let totalPriceOfGoods = this.items.reduce((acc, item) => {
-			return acc + item.priceOfGood * item.countOfGood;
-		}, 0);
-
-		return totalPriceOfGoods;
-
-	},
-	clear() {
-		this.items = Object.create(null);
-	},
-	print() {
-		console.log(JSON.stringify(this.items));
-		console.log(this.totalPrice);
-		console.log(this.count);
-	},
-}
+    return totalPriceOfGoods;
+  },
+  clear() {
+    this.items = Object.create(null);
+  },
+  print() {
+    console.log(JSON.stringify(this.items));
+    console.log(this.totalPrice);
+    console.log(this.count);
+  },
+};
 
 cart.add('cucumber', 152, 2);
 cart.add('salo', 300, 3);
@@ -48,5 +46,5 @@ cart.print();
 
 
 cart.clear();
-console.log("после функции очистки объектов", cart.items);
+console.log('после функции очистки объектов', cart.items);
 
