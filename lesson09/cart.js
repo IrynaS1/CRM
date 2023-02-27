@@ -17,11 +17,10 @@ const cart = {
     this.increaseCount();
   },
   increaseCount() {
-    let countOfGoods;
-    for (const keyOne in this.items) {
-      countOfGoods = this.items[keyOne].countOfGood;
-    }
-    this.count += countOfGoods;
+    const countOfGoods = this.items.reduce((acc, item) =>
+      acc + item.countOfGood, 0);
+
+    this.count = countOfGoods;
   },
   calculateItemPrice() {
     const totalPriceOfGoods = this.items.reduce((acc, item) =>
