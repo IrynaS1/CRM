@@ -35,27 +35,19 @@
 		};
 
 		const comparison = (moveComputer, moveUser) => {
-			const totalResults = () => {
-				const result = {
-					player: 0,
-					computer: 0,
-
-				};
-			};
-
-			let countComputer = 0;
-			let countPlayer = 0;
+			/* 	let countComputer = 0;
+	let countPlayer = 0; */
 
 			if (moveComputer === moveUser) {
 				alert('Ничья!');
-				game();
+				return game;
 			};
 			if ((moveComputer === 'ножницы' && moveUser === 'камень') &&
 				(moveComputer === 'бумага' && moveUser === 'ножницы') ||
 				(moveComputer === 'камень' && moveUser === 'бумага')) {
 				console.log(`Ход компьтера: ${moveComputer}, ход игрока: ${moveUser}`);
 				alert('Победа игрока!');
-				countPlayer = countPlayer + 1;
+				//countPlayer = countPlayer + 1;
 				game();
 			};
 			if ((moveComputer === 'бумага' && moveUser === 'камень') &&
@@ -63,7 +55,7 @@
 				(moveComputer === 'ножницы' && moveUser === 'бумага')) {
 				console.log(`Ход компьтера: ${moveComputer}, ход игрока: ${moveUser}`);
 				alert('Победа компьютера!');
-				countComputer = countComputer + 1;
+				//countComputer = countComputer + 1;
 				game();
 			};
 			if (moveUser === null || moveUser === '') {
@@ -78,18 +70,23 @@
 					} else {
 						winner = 'ничья';
 					}
-					alert('Игра окончена! Счет: компьтер - `${result.computer}`, игрок - `${result.player}`. Поздравляем, `${winner}`!');
+					alert(`Игра окончена! Счет: компьтер - ${result.computer}, игрок - ${result.player}. Поздравляем, ${winner}!`);
 				} else {
 					alert('Продолжаем!');
 					game();
 				}
 			};
+			const totalResults = () => {
+				const result = {
+					player: 0,
+					computer: 0,
+
+				};
+			};
 		};
 		const moveComputer = getComputerChoice();
-		//console.log('ход компьютера', moveComputer);
 
 		const moveUser = getUserChoice();
-		//console.log('ход игрока', moveUser);
 
 		comparison(moveComputer, moveUser);
 
