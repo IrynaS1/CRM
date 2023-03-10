@@ -26,15 +26,18 @@
 		//алгоритм получения ответа игрока
 		const getUserChoice = () => {
 			let enterChoice = prompt('Введите один из вариантов: камень, ножницы или бумага', '');
+			if (enterChoice !== null || enterChoice !== '') {
+				enterChoice = enterChoice.toLocaleLowerCase();
+			}
 			let userChoice = '';
-			if (enterChoice[0].toLowerCase() === 'к') {
+			if (enterChoice[0] === 'к') {
 				return userChoice = 'камень';
-			} else if (enterChoice[0].toLowerCase() === 'н') {
+			} else if (enterChoice[0] === 'н') {
 				return userChoice = 'ножницы';
-			} else if (enterChoice[0].toLowerCase() === 'б') {
+			} else if (enterChoice[0] === 'б') {
 				return userChoice = 'бумага';
 			} else {
-				userNoChoice();
+				return userChoice;
 			}
 		};
 
@@ -95,30 +98,29 @@
 			};
 
 			//игрок нажал отмену, окончание игры
-			var userNoChoice = () => {
-				if (enterChoice === '' || enterChoice === null) {
-					const answerUser = prompt('Игра будет окончена. Вы уверены, что хотите закончить игру? Введите да или нет', '');
+			if (moveUser === '') {
+				const answerUser = prompt('Игра будет окончена. Вы уверены, что хотите закончить игру? Введите да или нет', '');
 
-					if (answerUser === 'да' || (answerUser === null || answerUser === '')) {
-						let winner = '';
-						if (result.computer > result.player) {
-							winner = 'компьтер';
-						} else if (result.computer < result.player) {
-							winner = 'игрок';
-						} else {
-							winner = 'ничья';
-						};
-						alert(`Игра окончена! Счет: компьтер - ${result.computer}, игрок - ${result.player}. Поздравляем, ${winner}!`);
+				if (answerUser === 'да' || (answerUser === null || answerUser === '')) {
+					let winner = '';
+					if (result.computer > result.player) {
+						winner = 'компьтер';
+					} else if (result.computer < result.player) {
+						winner = 'игрок';
 					} else {
-						alert('Продолжаем!');
-						game();
-					}
-				};
+						winner = 'ничья';
+					};
+					alert(`Игра окончена! Счет: компьтер - ${result.computer}, игрок - ${result.player}. Поздравляем, ${winner}!`);
+				} else {
+					alert('Продолжаем!');
+					game();
+				}
 			}
 		};
 		const moveComputer = getComputerChoice();
 
 		const moveUser = getUserChoice();
+		console.log('moveUser перед сравнением', moveUser);
 
 		comparison(moveComputer, moveUser);
 
