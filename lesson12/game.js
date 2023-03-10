@@ -8,6 +8,8 @@
 	}; */
 
 	const game = (language) => {
+
+		//алгоритм получения ответа компьтера
 		const getComputerChoice = () => {
 			let computerChoice = '';
 			const getRandom = Math.random();
@@ -21,68 +23,98 @@
 			}
 		};
 
+		//алгоритм получения ответа игрока
 		const getUserChoice = () => {
-			let enterChoice = prompt('Введите один из вариантов: \n1. камень \n2. ножницы\n3. бумага', '');
-			enterChoice = enterChoice.toLowerCase();
+			let enterChoice = prompt('Введите один из вариантов: камень, ножницы или бумага', '');
 			let userChoice = '';
-			if (enterChoice[0] === 'к') {
+			if (enterChoice[0].toLowerCase() === 'к') {
 				return userChoice = 'камень';
-			} else if (enterChoice[0] === 'н') {
+			} else if (enterChoice[0].toLowerCase() === 'н') {
 				return userChoice = 'ножницы';
-			} else if (enterChoice[0] === 'б') {
+			} else if (enterChoice[0].toLowerCase() === 'б') {
 				return userChoice = 'бумага';
+			} else {
+				userNoChoice();
 			}
 		};
 
 		const comparison = (moveComputer, moveUser) => {
-			/* 	let countComputer = 0;
-	let countPlayer = 0; */
+			const totalResults = (countPlayer, countComputer) => {
+				console.log('countPlayer на входе функции', countPlayer);
+				console.log('countComputer на входе функции', countComputer);
 
+				const result = {
+					player: 0,
+					computer: 0,
+				};
+
+				result.player = result.player + countPlayer;
+				result.computer = result.computer + countComputer;
+
+				console.log('player счет в итоге', result.player);
+				console.log('computer счет в итоге', result.computer);
+
+				console.log('result в итоге весь объект', result);
+				return result.player;
+				return result.computer;
+			};
+
+			//если ничья
 			if (moveComputer === moveUser) {
 				alert('Ничья!');
-				return game;
+				game();
 			};
-			if ((moveComputer === 'ножницы' && moveUser === 'камень') &&
+
+			let countPlayer = 0;
+			let countComputer = 0;
+
+			//победа игрока
+			if ((moveComputer === 'ножницы' && moveUser === 'камень') ||
 				(moveComputer === 'бумага' && moveUser === 'ножницы') ||
 				(moveComputer === 'камень' && moveUser === 'бумага')) {
 				console.log(`Ход компьтера: ${moveComputer}, ход игрока: ${moveUser}`);
 				alert('Победа игрока!');
-				//countPlayer = countPlayer + 1;
+				countPlayer = 1;
+				countComputer = 0;
+				console.log('countPlayer', countPlayer);
+				totalResults(countPlayer, countComputer);
 				game();
 			};
-			if ((moveComputer === 'бумага' && moveUser === 'камень') &&
+
+			//победа компьютера
+			if ((moveComputer === 'бумага' && moveUser === 'камень') ||
 				(moveComputer === 'камень' && moveUser === 'ножницы') ||
 				(moveComputer === 'ножницы' && moveUser === 'бумага')) {
 				console.log(`Ход компьтера: ${moveComputer}, ход игрока: ${moveUser}`);
 				alert('Победа компьютера!');
-				//countComputer = countComputer + 1;
+				countComputer = 1;
+				countPlayer = 0;
+				console.log('countComputer', countComputer);
+				totalResults(countPlayer, countComputer);
 				game();
 			};
-			if (moveUser === null || moveUser === '') {
-				const answerUser = prompt('Игра будет окончена. Вы уверены, что хотите закончить игру? Введите да или нет', '');
 
-				if (answerUser === 'да' || (moveUser === null || moveUser === '')) {
-					let winner = '';
-					if (result.computer > result.player) {
-						winner = 'компьтер';
-					} else if (result.computer < result.player) {
-						winner = 'игрок';
+			//игрок нажал отмену, окончание игры
+			var userNoChoice = () => {
+				if (enterChoice === '' || enterChoice === null) {
+					const answerUser = prompt('Игра будет окончена. Вы уверены, что хотите закончить игру? Введите да или нет', '');
+
+					if (answerUser === 'да' || (answerUser === null || answerUser === '')) {
+						let winner = '';
+						if (result.computer > result.player) {
+							winner = 'компьтер';
+						} else if (result.computer < result.player) {
+							winner = 'игрок';
+						} else {
+							winner = 'ничья';
+						};
+						alert(`Игра окончена! Счет: компьтер - ${result.computer}, игрок - ${result.player}. Поздравляем, ${winner}!`);
 					} else {
-						winner = 'ничья';
+						alert('Продолжаем!');
+						game();
 					}
-					alert(`Игра окончена! Счет: компьтер - ${result.computer}, игрок - ${result.player}. Поздравляем, ${winner}!`);
-				} else {
-					alert('Продолжаем!');
-					game();
-				}
-			};
-			const totalResults = () => {
-				const result = {
-					player: 0,
-					computer: 0,
-
 				};
-			};
+			}
 		};
 		const moveComputer = getComputerChoice();
 
