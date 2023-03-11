@@ -1,15 +1,14 @@
 'use strict';
 (() => {
-	const FIGURES_ENG = ['rock', 'scissors', 'paper'];
-	const FIGURES_RUS = ['камень', 'ножницы', 'бумага'];
+	//const FIGURES_ENG = ['rock', 'scissors', 'paper'];
+	//const FIGURES_RUS = ['камень', 'ножницы', 'бумага'];
 
 	/* const getFigure = lang => {
-
-	}; */
+ 
+	 }; */
 
 	const game = (language) => {
-
-		//алгоритм получения ответа компьтера
+		// алгоритм получения ответа компьтера
 		const getComputerChoice = () => {
 			let computerChoice = '';
 			const getRandom = Math.random();
@@ -23,7 +22,7 @@
 			}
 		};
 
-		//алгоритм получения ответа игрока
+		// алгоритм получения ответа игрока
 		const getUserChoice = () => {
 			let enterChoice = prompt('Введите один из вариантов: камень, ножницы или бумага', '');
 			if (enterChoice !== null || enterChoice !== '') {
@@ -51,27 +50,26 @@
 					computer: 0,
 				};
 
-				result.player = result.player + countPlayer;
-				result.computer = result.computer + countComputer;
+				result.player += countPlayer;
+				result.computer += countComputer;
 
 				console.log('player счет в итоге', result.player);
 				console.log('computer счет в итоге', result.computer);
 
 				console.log('result в итоге весь объект', result);
-				return result.player;
-				return result.computer;
+				return result.player, result.computer;
 			};
 
-			//если ничья
+			// если ничья
 			if (moveComputer === moveUser) {
 				alert('Ничья!');
 				game();
-			};
+			}
 
 			let countPlayer = 0;
 			let countComputer = 0;
 
-			//победа игрока
+			// победа игрока
 			if ((moveComputer === 'ножницы' && moveUser === 'камень') ||
 				(moveComputer === 'бумага' && moveUser === 'ножницы') ||
 				(moveComputer === 'камень' && moveUser === 'бумага')) {
@@ -82,9 +80,9 @@
 				console.log('countPlayer', countPlayer);
 				totalResults(countPlayer, countComputer);
 				game();
-			};
+			}
 
-			//победа компьютера
+			// победа компьютера
 			if ((moveComputer === 'бумага' && moveUser === 'камень') ||
 				(moveComputer === 'камень' && moveUser === 'ножницы') ||
 				(moveComputer === 'ножницы' && moveUser === 'бумага')) {
@@ -95,9 +93,9 @@
 				console.log('countComputer', countComputer);
 				totalResults(countPlayer, countComputer);
 				game();
-			};
+			}
 
-			//игрок нажал отмену, окончание игры
+			// игрок нажал отмену, окончание игры
 			if (moveUser === '') {
 				const answerUser = prompt('Игра будет окончена. Вы уверены, что хотите закончить игру? Введите да или нет', '');
 
@@ -109,7 +107,7 @@
 						winner = 'игрок';
 					} else {
 						winner = 'ничья';
-					};
+					}
 					alert(`Игра окончена! Счет: компьтер - ${result.computer}, игрок - ${result.player}. Поздравляем, ${winner}!`);
 				} else {
 					alert('Продолжаем!');
@@ -126,11 +124,11 @@
 
 
 		/* const lang = language === 'EN' || language === 'ENG' ?
-			FIGURES_ENG : FIGURES_RUS; */
+			  FIGURES_ENG : FIGURES_RUS; */
 
 		/* 		return function start() {
-		
-				}; */
+  
+				  }; */
 	};
 
 	window.RPS = game;
