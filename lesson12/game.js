@@ -51,31 +51,31 @@
 			}
 		};
 
-		const totalResults = (countPlayer, countComputer) => {
+		const result = {
+			player: 0,
+			computer: 0,
+		};
+
+		const totalResults = () => {
 			console.log('countPlayer на входе функции', countPlayer);
 			console.log('countComputer на входе функции', countComputer);
 
-			const result = {
-				player: 0,
-				computer: 0,
+			const updater = (countPlayer, countComputer) => {
+				if (countPlayer === 1) {
+					result.player = result.player + 1;
+				};
+
+				if (countComputer === 1) {
+					result.computer = result.computer + 1;
+				};
 			};
 
-			if (countPlayer = 1) {
-				result.player = result.player++;
-			} else {
-				endGame();
-			};
+			return updater(countPlayer, countComputer);
 
-			if (countComputer = 1) {
-				result.computer = result.computer++;
-			} else {
-				endGame();
-			};
+			
+			console.log('result.player', result.player);
+			console.log('result.computer', result.computer);
 
-			console.log('player счет в итоге', result.player);
-			console.log('computer счет в итоге', result.computer);
-
-			console.log('result в итоге весь объект', result);
 			//return alert(`Игра окончена! Счет: компьтер - ${result.computer}, игрок - ${result.player}.`);
 
 		};
