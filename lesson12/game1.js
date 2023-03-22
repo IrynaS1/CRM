@@ -60,9 +60,9 @@
 					start();
 				}
 
-				if ((moveComputer === 'ножницы' && moveUser === 'камень') ||
-					(moveComputer === 'бумага' && moveUser === 'ножницы') ||
-					(moveComputer === 'камень' && moveUser === 'бумага')) {
+				if ((moveComputer === choice[1] && moveUser === choice[0]) ||
+					(moveComputer === choice[2] && moveUser === choice[1]) ||
+					(moveComputer === choice[1] && moveUser === choice[2])) {
 					console.log(`Компьтер: ${moveComputer}, игрок: ${moveUser}`);
 					alert('Победа игрока!');
 					result.player++;
