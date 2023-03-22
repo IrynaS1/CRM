@@ -60,7 +60,6 @@
           start();
         }
 
-        // победа игрока
         if ((moveComputer === 'ножницы' && moveUser === 'камень') ||
             (moveComputer === 'бумага' && moveUser === 'ножницы') ||
             (moveComputer === 'камень' && moveUser === 'бумага')) {
@@ -68,18 +67,14 @@
           alert('Победа игрока!');
           result.player++;
           start();
-        }
-
-        // победа компьютера
-        if ((moveComputer === 'бумага' && moveUser === 'камень') ||
-            (moveComputer === 'камень' && moveUser === 'ножницы') ||
-            (moveComputer === 'ножницы' && moveUser === 'бумага')) {
+        } else {
           console.log(`Компьтер: ${moveComputer}, игрок: ${moveUser}`);
           alert('Победа компьютера!');
           result.computer++;
           start();
         }
-      };
+		 };
+		 
       const moveComputer = getComputerChoice();
 
       const moveUser = getUserChoice();
