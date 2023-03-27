@@ -34,13 +34,12 @@
 
 					if (askOnce === 'да' ||
 						(askOnce === null || askOnce === '')) {
-						alert(`Игра окончена!`);
 						if (balls.computer === 0) {
-							alert(`Игра окончена, компьтер проиграл.`);
-							return game();
+							return alert(`Игра окончена, компьтер проиграл.`);
+						} else if (balls.player === 0) {
+							return alert(`Игра окончена, игрок проиграл.`);
 						} else {
-							alert(`Игра окончена, игрок проиграл.`);
-							return game();
+							return alert(`Игра так и не началась!`);
 						}
 					} else {
 						alert('Продолжаем!');
